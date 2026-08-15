@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Luggage Collection — Montaro</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=satoshi@400,500,700&display=swap">
+<link rel="stylesheet" href="styles.css">
+<style>
+  /* ---------- Page hero ---------- */
+  .page-hero{padding:44px 0 56px;}
+  .breadcrumb{
+    display:flex; align-items:center; gap:8px;
+    font-size:13.5px; color:var(--charcoal-soft); margin-bottom:22px;
+  }
+  .breadcrumb a{color:var(--charcoal-soft); transition:color .2s ease;}
+  .breadcrumb a:hover{color:var(--amber-dark);}
+  .breadcrumb svg{width:12px;height:12px;}
+  .page-hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:48px;
+    align-items:center;
+  }
+  .page-hero h1{
+    font-size:clamp(34px,4.4vw,54px);
+    line-height:1.05;
+    margin-bottom:18px;
+  }
+  .page-hero p.lead{
+    font-size:17px;
+    color:var(--charcoal-soft);
+    max-width:460px;
+    margin-bottom:28px;
+  }
+  .page-hero-stats{display:flex; gap:28px; flex-wrap:wrap;}
+  .page-hero-stats div{display:flex; flex-direction:column;}
+  .page-hero-stats strong{font-family:'Clash Display',sans-serif; font-size:22px;}
+  .page-hero-stats span{font-size:12.5px; color:var(--charcoal-soft);}
+
+  .page-hero-art{
+    position:relative;
+    background:var(--amber-tint);
+    border-radius:var(--r-xl);
+    min-height:320px;
+    display:flex; align-items:center; justify-content:center;
+    overflow:hidden;
+  }
+  .page-hero-art::before{
+    content:'';
+    position:absolute;
+    width:70%; height:70%;
+    background:var(--amber);
+    border-radius:63% 37% 54% 46% / 43% 37% 63% 57%;
+    opacity:0.5;
+  }
+  .page-hero-art svg{position:relative; z-index:1; width:46%;}
+
+  @media (max-width:900px){
+    .page-hero-grid{grid-template-columns:1fr;}
+    .page-hero-art{min-height:220px;}
+  }
+
+  /* ---------- Filters ---------- */
+  .filter-bar{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+    margin-bottom:40px;
+  }
+  .filter-pill{
+    padding:11px 22px;
+    border-radius:100px;
+    border:1.5px solid var(--line);
+    font-size:14px;
+    font-weight:600;
+    color:var(--charcoal-soft);
+    background:var(--white);
+    transition:all .2s ease;
+  }
+  .filter-pill:hover{border-color:var(--amber-dark); color:var(--charcoal);}
+  .filter-pill.active{
+    background:var(--charcoal);
+    border-color:var(--charcoal);
+    color:var(--white);
+  }
+
+  /* ---------- Product grid ---------- */
+  .product-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:26px;
+  }
+  .product-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:var(--r-lg);
+    overflow:hidden;
+    transition:transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    display:flex;
+    flex-direction:column;
+  }
+  .product-card:hover{transform:translateY(-6px); box-shadow:var(--shadow-soft); border-color:var(--amber);}
+  .product-media{
+    position:relative;
+    background:var(--cream);
+    aspect-ratio:1/0.85;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .product-media svg{width:52%; height:52%;}
+  .product-badge{
+    position:absolute; top:16px; left:16px;
+    background:var(--charcoal);
+    color:var(--white);
+    font-size:11.5px;
+    font-weight:700;
+    letter-spacing:0.03em;
+    text-transform:uppercase;
+    padding:6px 12px;
+    border-radius:100px;
+  }
+  .product-badge.new{background:var(--amber); color:var(--charcoal);}
+  .product-body{padding:24px 24px 26px; display:flex; flex-direction:column; flex:1;}
+  .product-cat{font-size:12px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--amber-dark); margin-bottom:8px;}
+  .product-body h3{font-size:19px; margin-bottom:6px;}
+  .product-specs{font-size:13.5px; color:var(--charcoal-soft); margin-bottom:16px;}
+  .product-swatches{display:flex; gap:8px; margin-bottom:18px;}
+  .swatch{width:18px; height:18px; border-radius:50%; border:2px solid var(--white); box-shadow:0 0 0 1.5px var(--line);}
+  .product-footer{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-top:auto;
+    padding-top:16px;
+    border-top:1px solid var(--line);
+  }
+  .product-price{font-family:'Clash Display',sans-serif; font-size:19px; font-weight:600;}
+  .product-price span{font-size:12.5px; color:var(--charcoal-soft); font-family:'Satoshi',sans-serif; font-weight:400; display:block;}
+  .add-btn{
+    width:42px; height:42px;
+    border-radius:var(--r-sm);
+    background:var(--charcoal);
+    color:var(--white);
+    display:flex; align-items:center; justify-content:center;
+    transition:background .2s ease;
+  }
+  .add-btn:hover{background:var(--amber-dark);}
+  .add-btn svg{width:18px;height:18px;}
+
+  @media (max-width:900px){.product-grid{grid-template-columns:1fr 1fr;}}
+  @media (max-width:600px){.product-grid{grid-template-columns:1fr;}}
+
+  /* ---------- Size guide ---------- */
+  .size-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:24px;
+  }
+  .size-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:var(--r-lg);
+    padding:30px;
+  }
+  .size-card .tag{
+    display:inline-block;
+    padding:6px 14px;
+    border-radius:100px;
+    background:var(--amber-tint);
+    color:var(--amber-dark);
+    font-size:12px;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:0.03em;
+    margin-bottom:16px;
+  }
+  .size-card h3{font-size:20px; margin-bottom:18px;}
+  .size-row{
+    display:flex; justify-content:space-between;
+    padding:10px 0;
+    border-top:1px solid var(--line);
+    font-size:14px;
+  }
+  .size-row span:first-child{color:var(--charcoal-soft);}
+  .size-row strong{font-weight:700;}
+
+  @media (max-width:900px){.size-grid{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav wrap">
+    <a href="index.html#home" class="brand">
+      <img src="montaro-icon.png" alt="Montaro icon">
+      <span>montaro</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html#home">Home</a></li>
+      <li><a href="luggage.html" style="color:var(--charcoal); font-weight:700;">Luggage</a></li>
+      <li><a href="index.html#duffle">Duffle</a></li>
+      <li><a href="index.html#backpacks">Backpacks</a></li>
+      <li><a href="index.html#briefcase">Briefcase</a></li>
+      <li><a href="index.html#accessories">Accessories</a></li>
+      <li><a href="index.html#contact">Contact Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="index.html#contact" class="btn btn-amber">Get in touch</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="breadcrumb">
+        <a href="index.html#home">Home</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+        <span>Luggage Collection</span>
+      </div>
+      <div class="page-hero-grid">
+        <div>
+          <h1>Built to survive baggage claim.</h1>
+          <p class="lead">Aircraft-grade shells, four-wheel spinners that glide dead straight, and a fit system that swallows one more souvenir than you planned for. Six sizes, one standard.</p>
+          <div class="page-hero-stats">
+            <div><strong>6</strong><span>Sizes &amp; styles</span></div>
+            <div><strong>8 yrs</strong><span>Hardware warranty</span></div>
+            <div><strong>2.6–4.1kg</strong><span>Shell weight range</span></div>
+          </div>
+        </div>
+        <div class="page-hero-art">
+          <svg viewBox="0 0 64 64" fill="none"><rect x="19" y="8" width="26" height="12" rx="6" stroke="#2A2926" stroke-width="4"/><rect x="8" y="20" width="48" height="36" rx="12" stroke="#2A2926" stroke-width="4"/><path d="M20 36c0-4.5 3-7 6-7s5 3.5 5 7 2 7 5 7 6-2.5 6-7" stroke="#2A2926" stroke-width="4" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT GRID -->
+  <section style="padding-top:0;">
+    <div class="wrap">
+      <div class="filter-bar" id="filterBar">
+        <button class="filter-pill active" data-filter="all">All luggage</button>
+        <button class="filter-pill" data-filter="cabin">Cabin</button>
+        <button class="filter-pill" data-filter="checkin">Check-in</button>
+        <button class="filter-pill" data-filter="expandable">Expandable</button>
+      </div>
+
+      <div class="product-grid" id="productGrid">
+
+        <div class="product-card" data-category="cabin">
+          <div class="product-media">
+            <span class="product-badge">Bestseller</span>
+            <svg viewBox="0 0 64 64" fill="none"><rect x="19" y="8" width="26" height="12" rx="6" stroke="#2A2926" stroke-width="4"/><rect x="8" y="20" width="48" height="36" rx="12" stroke="#2A2926" stroke-width="4"/><path d="M20 36c0-4.5 3-7 6-7s5 3.5 5 7 2 7 5 7 6-2.5 6-7" stroke="#2A2926" stroke-width="4" stroke-linecap="round"/></svg>
+          </div>
+          <div class="product-body">
+            <div class="product-cat">Cabin · 55cm</div>
+            <h3>Montaro Cabin Trolley</h3>
+            <p class="product-specs">2.6kg · Polycarbonate shell · 35L</p>
+            <div class="product-swatches">
+              <span class="swatch" style="background:#2A2926;"></span>
+              <span class="swatch" style="background:#D8C9A8;"></span>
+              <span class="swatch" style="background:#F6B333;"></span>
+            </div>
+            <div class="product-footer">
+              <div class="product-price">₹16,999<span>incl. taxes</span></div>
+              <button class="add-btn" aria-label="Add to bag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12L6 6zM6 6L5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/></svg></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="checkin">
+          <div class="product-media">
+            <svg viewBox="0 0 64 64" fill="none"><rect x="19" y="8" width="26" height="12" rx="6" stroke="#2A2926" stroke-width="4"/><rect x="8" y="20" width="48" height="36" rx="12" stroke="#2A2926" stroke-width="4"/><path d="M20 36c0-4.5 3-7 6-7s5 3.5 5 7 2 7 5 7 6-2.5 6-7" stroke="#2A2926" stroke-width="4" stroke-linecap="round"/></svg>
+          </div>
+          <div class="product-body">
+            <div class="product-cat">Check-in · 65cm</div>
+            <h3>Montaro Medium Trolley</h3>
+            <p class="product-specs">3.4kg · Polycarbonate shell · 65L</p>
+            <div class="product-swatches">
+              <span class="swatch" style="background:#2A2926;"></span>
+              <span class="swatch" style="background:#D8C9A8;"></span>
+            </div>
+            <div class="product-footer">
+              <div class="product-price">₹21,499<span>incl. taxes</span></div>
+              <button class="add-btn" aria-label="Add to bag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12L6 6zM6 6L5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/></svg></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="checkin">
+          <div class="product-media">
+            <svg viewBox="0 0 64 64" fill="none"><rect x="19" y="8" width="26" height="12" rx="6" stroke="#2A2926" stroke-width="4"/><rect x="8" y="20" width="48" height="36" rx="12" stroke="#2A2926" stroke-width="4"/><path d="M20 36c0-4.5 3-7 6-7s5 3.5 5 7 2 7 5 7 6-2.5 6-7" stroke="#2A2926" stroke-width="4" stroke-linecap="round"/></svg>
+          </div>
+          <div class="product-body">
+            <div class="product-cat">Check-in · 75cm</div>
+            <h3>Montaro Large Trolley</h3>
+            <p class="product-specs">4.1kg · Polycarbonate shell · 95L</p>
+            <div class="product-swatches">
+              <span class="swatch" style="background:#2A2926;"></span>
+            </div>
+            <div class="product-footer">
+              <div class="product-price">₹24,999<span>incl. taxes</span></div>
+              <button class="add-btn" aria-label="Add to bag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12L6 6zM6 6L5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/></svg></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="expandable">
+          <div class="product-media">
+            <span class="product-badge">Most spacious</span>
+            <svg viewBox="0 0 64 64" fill="none"><rect x="19" y="8" width="26" height="12" rx="6" stroke="#2A2926" stroke-width="4"/><rect x="8" y="20" width="48" height="36" rx="12" stroke="#2A2926" stroke-width="4"/><line x1="8" y1="32" x2="56" y2="32" stroke="#2A2926" stroke-width="4" stroke-linecap="round"/><path d="M20 44c0-3.5 3-5.5 6-5.5s5 2.5 5 5.5 2 5.5 5 5.5 6-2 6-5.5" stroke="#2A2926" stroke-width="4" stroke-linecap="round"/></svg>
+          </div>
+          <div class="product-body">
+            <div class="product-cat">Expandable · 68cm</div>
+            <h3>Montaro Expandable Trolley</h3>
+            <p class="product-specs">3.8kg · +15% expansion zip · 80L</p>
+            <div class="product-swatches">
+              <span class="swatch" style="background:#2A2926;"></span>
+              <span class="swatch" style="background:#5B5954;"></span>
+            </div>
+            <div class="product-footer">
+              <div class="product-price">₹23,499<span>incl. taxes</span></div>
+              <button class="add-btn" aria-label="Add to bag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12L6 6zM6 6L5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/></svg></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="cabin">
+          <div class="product-media">
+            <span class="product-badge new">New</span>
+            <svg viewBox="0 0 64 64" fill="none"><rect x="19" y="8" width="26" height="12" rx="6" stroke="#2A2926" stroke-width="4"/><rect x="8" y="20" width="48" height="36" rx="12" stroke="#2A2926" stroke-width="4"/><path d="M20 36c0-4.5 3-7 6-7s5 3.5 5 7 2 7 5 7 6-2.5 6-7" stroke="#2A2926" stroke-width="4" stroke-linecap="round"/></svg>
+          </div>
+          <div class="product-body">
+            <div class="product-cat">Cabin · 55cm</div>
+            <h3>Cabin Trolley — Amber Edition</h3>
+            <p class="product-specs">2.6kg · Polycarbonate shell · Limited colourway</p>
+            <div class="product-swatches">
+              <span class="swatch" style="background:#F6B333;"></span>
+            </div>
+            <div class="product-footer">
+              <div class="product-price">₹18,499<span>incl. taxes</span></div>
+              <button class="add-btn" aria-label="Add to bag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12L6 6zM6 6L5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/></svg></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="product-card" data-category="cabin">
+          <div class="product-media">
+            <svg viewBox="0 0 64 64" fill="none"><rect x="14" y="14" width="36" height="40" rx="14" stroke="#2A2926" stroke-width="4"/><path d="M22 14c0-4 2-7 10-7s10 3 10 7" stroke="#2A2926" stroke-width="4" stroke-linecap="round"/><path d="M22 32c0-3 2-5 5-5s4 2.5 4 5 1.5 5 4 5 5-2 5-5" stroke="#2A2926" stroke-width="4" stroke-linecap="round"/></svg>
+          </div>
+          <div class="product-body">
+            <div class="product-cat">Cabin · Underseat 40cm</div>
+            <h3>Montaro Underseat Carry-on</h3>
+            <p class="product-specs">1.9kg · Ballistic nylon · 20L</p>
+            <div class="product-swatches">
+              <span class="swatch" style="background:#2A2926;"></span>
+              <span class="swatch" style="background:#D8C9A8;"></span>
+            </div>
+            <div class="product-footer">
+              <div class="product-price">₹12,999<span>incl. taxes</span></div>
+              <button class="add-btn" aria-label="Add to bag"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12L6 6zM6 6L5 3H2"/><circle cx="9" cy="20" r="1.5"/><circle cx="17" cy="20" r="1.5"/></svg></button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SIZE GUIDE -->
+  <section class="cream-bg">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow"><span class="dot"></span>Before you buy</div>
+        <h2>Find your size in one look.</h2>
+        <p>Every Montaro trolley is built on the same three shells — the only question is how much you're bringing home.</p>
+      </div>
+      <div class="size-grid">
+        <div class="size-card">
+          <span class="tag">Cabin</span>
+          <h3>55 × 40 × 20cm</h3>
+          <div class="size-row"><span>Capacity</span><strong>35L</strong></div>
+          <div class="size-row"><span>Empty weight</span><strong>2.6kg</strong></div>
+          <div class="size-row"><span>Best for</span><strong>2–4 day trips</strong></div>
+          <div class="size-row"><span>Cabin-approved</span><strong>Most airlines</strong></div>
+        </div>
+        <div class="size-card">
+          <span class="tag">Check-in medium</span>
+          <h3>65 × 45 × 27cm</h3>
+          <div class="size-row"><span>Capacity</span><strong>65L</strong></div>
+          <div class="size-row"><span>Empty weight</span><strong>3.4kg</strong></div>
+          <div class="size-row"><span>Best for</span><strong>1–2 week trips</strong></div>
+          <div class="size-row"><span>Cabin-approved</span><strong>No</strong></div>
+        </div>
+        <div class="size-card">
+          <span class="tag">Check-in large</span>
+          <h3>75 × 50 × 30cm</h3>
+          <div class="size-row"><span>Capacity</span><strong>95L</strong></div>
+          <div class="size-row"><span>Empty weight</span><strong>4.1kg</strong></div>
+          <div class="size-row"><span>Best for</span><strong>Extended travel</strong></div>
+          <div class="size-row"><span>Cabin-approved</span><strong>No</strong></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="wrap">
+      <div class="cta-band">
+        <div>
+          <h2>Not sure which size fits your trips?</h2>
+          <p>Tell us your usual trip length and airline, and our studio will match you to the right Montaro trolley.</p>
+        </div>
+        <div>
+          <a href="index.html#contact" class="btn btn-primary" style="width:100%; justify-content:center; background:var(--charcoal);">Ask our studio</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html#home" class="brand">
+          <img src="montaro-icon.png" alt="Montaro icon" style="height:34px;">
+          <span>montaro</span>
+        </a>
+        <p>Premium travel bags designed for the long way round — built once, carried for years.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h-2a4 4 0 00-4 4v3H7v4h2v7h4v-7h3l1-4h-4V8a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="4" height="11"/><circle cx="5" cy="5" r="1.5"/><path d="M11 20v-6a3 3 0 016 0v6M11 9v11"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="luggage.html">Luggage</a></li>
+          <li><a href="index.html#duffle">Duffle bags</a></li>
+          <li><a href="index.html#backpacks">Backpacks</a></li>
+          <li><a href="index.html#briefcase">Briefcases</a></li>
+          <li><a href="index.html#accessories">Accessories</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html#craft">Our craft</a></li>
+          <li><a href="#">Warranty</a></li>
+          <li><a href="#">Repairs</a></li>
+          <li><a href="#">Sustainability</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="index.html#contact">Contact us</a></li>
+          <li><a href="#">Track order</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Montaro. All rights reserved.</span>
+      <span>Designed for the long way round.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const toggle = document.getElementById('menuToggle');
+  const links = document.getElementById('navLinks');
+  toggle.addEventListener('click', () => {
+    const isOpen = links.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', isOpen);
+  });
+  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    links.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  const pills = document.querySelectorAll('.filter-pill');
+  const cards = document.querySelectorAll('.product-card');
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+      const filter = pill.dataset.filter;
+      cards.forEach(card => {
+        const match = filter === 'all' || card.dataset.category === filter;
+        card.style.display = match ? 'flex' : 'none';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
