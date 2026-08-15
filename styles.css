@@ -708,8 +708,10 @@ footer{
 @media (max-width:960px){.footer-grid{grid-template-columns:1fr 1fr;gap:36px 20px;}}
 @media (max-width:560px){.footer-grid{grid-template-columns:1fr;}}
 
-/* ---------- Scroll reveal ---------- */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease), transform .7s var(--ease);}
+/* ---------- Scroll reveal ----------
+   Only hide when JS is available (html.js is set by an inline head script).
+   Without JS, content stays fully visible — the page can never render blank. */
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease), transform .7s var(--ease);}
 .reveal.in{opacity:1;transform:none;}
 .reveal.d1{transition-delay:.08s;}
 .reveal.d2{transition-delay:.16s;}
