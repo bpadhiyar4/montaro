@@ -3,30 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Montaro — Travel bags built for the long way round</title>
+<title>Montaro — Premium travel bags built for the long way round</title>
+<meta name="description" content="Montaro makes premium travel bags — luggage, duffles, backpacks, briefcases and accessories. Built once, carried for years.">
+<link rel="icon" href="montaro-icon.png">
 <link rel="preconnect" href="https://api.fontshare.com">
 <link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=satoshi@400,500,700&display=swap">
 <link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
 </head>
 <body>
 
 <header>
   <nav class="nav wrap">
-    <a href="#home" class="brand">
+    <a href="index.html" class="brand">
       <img src="montaro-icon.png" alt="Montaro icon">
       <span>montaro</span>
     </a>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html#home">Home</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
       <li><a href="luggage.html">Luggage</a></li>
-      <li><a href="index.html#duffle">Duffle</a></li>
-      <li><a href="index.html#backpacks">Backpacks</a></li>
-      <li><a href="index.html#briefcase">Briefcase</a></li>
-      <li><a href="index.html#accessories">Accessories</a></li>
-      <li><a href="index.html#contact">Contact Us</a></li>
+      <li><a href="duffle.html">Duffle</a></li>
+      <li><a href="backpacks.html">Backpacks</a></li>
+      <li><a href="briefcase.html">Briefcase</a></li>
+      <li><a href="accessories.html">Accessories</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
     </ul>
     <div class="nav-right">
-      <a href="index.html#contact" class="btn btn-amber">Get in touch</a>
+      <a href="contact.html" class="btn btn-amber">Get in touch</a>
       <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
     </div>
   </nav>
@@ -36,7 +39,7 @@
   <!-- HERO -->
   <section class="hero" id="home">
     <div class="wrap hero-grid">
-      <div>
+      <div class="reveal">
         <div class="eyebrow"><span class="dot"></span>Premium travel bags</div>
         <h1>Bags built for the<br>long way <em>round.</em></h1>
         <p class="lead">Full-grain leather trims, whisper-quiet wheels, and hardware backed for life. Montaro carries you through the terminal today and the decade ahead.</p>
@@ -51,15 +54,16 @@
         </div>
       </div>
 
-      <div class="hero-art">
-        <div class="blob"></div>
-        <img class="hero-icon" src="montaro-icon.png" alt="Montaro suitcase mark">
+      <div class="hero-art reveal d1">
+        <div class="hero-tile">
+          <img src="montaro-icon.png" alt="Montaro suitcase mark">
+        </div>
         <div class="float-card fc1">
-          <svg viewBox="0 0 64 64" fill="none"><rect x="14" y="10" width="26" height="10" rx="5" stroke="#2A2926" stroke-width="4"/><rect x="6" y="20" width="42" height="34" rx="10" stroke="#2A2926" stroke-width="4"/><path d="M18 34c0-4 3-6 6-6s5 3 5 6 2 6 5 6 6-2 6-6" stroke="#2A2926" stroke-width="4" stroke-linecap="round"/></svg>
+          <span class="tile"><svg viewBox="0 0 64 64" fill="none"><rect x="16" y="10" width="24" height="10" rx="5" stroke="#2A2926" stroke-width="4"/><rect x="8" y="20" width="42" height="34" rx="12" stroke="#2A2926" stroke-width="4"/><path d="M18 36c0-4 3-6.5 6-6.5s5 2.5 5 6.5 2 6.5 5 6.5 6-2.5 6-6.5" stroke="#2A2926" stroke-width="4" stroke-linecap="round"/></svg></span>
           <div><div class="fc-title">Cabin Trolley</div><div class="fc-sub">2.6kg · Polycarbonate</div></div>
         </div>
         <div class="float-card fc2">
-          <svg viewBox="0 0 64 64" fill="none"><rect x="8" y="22" width="48" height="26" rx="13" stroke="#2A2926" stroke-width="4"/><path d="M20 22c0-8 6-12 12-12s12 4 12 12" stroke="#2A2926" stroke-width="4" stroke-linecap="round"/></svg>
+          <span class="tile"><svg viewBox="0 0 64 64" fill="none"><rect x="8" y="24" width="48" height="26" rx="13" stroke="#2A2926" stroke-width="4"/><path d="M20 24c0-8 6-12 12-12s12 4 12 12" stroke="#2A2926" stroke-width="4" stroke-linecap="round"/></svg></span>
           <div><div class="fc-title">Weekend Duffle</div><div class="fc-sub">Full-grain leather</div></div>
         </div>
       </div>
@@ -83,9 +87,9 @@
   </div>
 
   <!-- COLLECTIONS -->
-  <section id="luggage">
+  <section id="collections">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <div class="eyebrow"><span class="dot"></span>The range</div>
         <h2>Five collections, one standard.</h2>
         <p>Every Montaro piece shares the same hardware, stitching and 8-year promise — the only thing that changes is the shape of the journey.</p>
@@ -93,7 +97,7 @@
 
       <div class="collection-grid">
         <!-- Luggage -->
-        <div class="col-card">
+        <div class="col-card reveal">
           <div class="col-icon">
             <svg viewBox="0 0 64 64" fill="none"><rect x="19" y="8" width="26" height="12" rx="6" stroke="#2A2926" stroke-width="4"/><rect x="8" y="20" width="48" height="36" rx="12" stroke="#2A2926" stroke-width="4"/><path d="M20 36c0-4.5 3-7 6-7s5 3.5 5 7 2 7 5 7 6-2.5 6-7" stroke="#2A2926" stroke-width="4" stroke-linecap="round"/></svg>
           </div>
@@ -102,40 +106,49 @@
           <a href="luggage.html" class="col-link">Explore luggage <svg viewBox="0 0 24 24" fill="none" stroke="#2A2926" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
         <!-- Duffle -->
-        <div class="col-card" id="duffle">
+        <div class="col-card reveal d1">
           <div class="col-icon">
             <svg viewBox="0 0 64 64" fill="none"><rect x="8" y="24" width="48" height="26" rx="13" stroke="#2A2926" stroke-width="4"/><path d="M20 24c0-8 6-12 12-12s12 4 12 12" stroke="#2A2926" stroke-width="4" stroke-linecap="round"/><line x1="16" y1="34" x2="48" y2="34" stroke="#2A2926" stroke-width="4" stroke-linecap="round"/></svg>
           </div>
           <h3>Duffle Bags</h3>
           <p>Soft-structured weekenders that pack flat and stand up to gate-checks.</p>
-          <a href="#" class="col-link">Explore duffles <svg viewBox="0 0 24 24" fill="none" stroke="#2A2926" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="duffle.html" class="col-link">Explore duffles <svg viewBox="0 0 24 24" fill="none" stroke="#2A2926" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
         <!-- Backpacks -->
-        <div class="col-card" id="backpacks">
+        <div class="col-card reveal d2">
           <div class="col-icon">
             <svg viewBox="0 0 64 64" fill="none"><path d="M20 16c0-6 5-9 12-9s12 3 12 9" stroke="#2A2926" stroke-width="4" stroke-linecap="round"/><rect x="14" y="16" width="36" height="38" rx="14" stroke="#2A2926" stroke-width="4"/><rect x="22" y="30" width="20" height="14" rx="6" stroke="#2A2926" stroke-width="4"/></svg>
           </div>
           <h3>Backpacks</h3>
           <p>Laptop-ready daypacks with a floating strap system and rain-safe zips.</p>
-          <a href="#" class="col-link">Explore backpacks <svg viewBox="0 0 24 24" fill="none" stroke="#2A2926" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="backpacks.html" class="col-link">Explore backpacks <svg viewBox="0 0 24 24" fill="none" stroke="#2A2926" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
         <!-- Briefcase -->
-        <div class="col-card" id="briefcase">
+        <div class="col-card reveal">
           <div class="col-icon">
             <svg viewBox="0 0 64 64" fill="none"><rect x="22" y="10" width="20" height="10" rx="5" stroke="#2A2926" stroke-width="4"/><rect x="8" y="20" width="48" height="32" rx="10" stroke="#2A2926" stroke-width="4"/><rect x="28" y="20" width="8" height="10" rx="3" stroke="#2A2926" stroke-width="4"/></svg>
           </div>
           <h3>Briefcases</h3>
           <p>Structured work bags with padded laptop sleeves and a magnetic close.</p>
-          <a href="#" class="col-link">Explore briefcases <svg viewBox="0 0 24 24" fill="none" stroke="#2A2926" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="briefcase.html" class="col-link">Explore briefcases <svg viewBox="0 0 24 24" fill="none" stroke="#2A2926" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
         <!-- Accessories -->
-        <div class="col-card" id="accessories">
+        <div class="col-card reveal d1">
           <div class="col-icon">
             <svg viewBox="0 0 64 64" fill="none"><rect x="14" y="18" width="30" height="30" rx="9" stroke="#2A2926" stroke-width="4"/><path d="M44 26l10-8" stroke="#2A2926" stroke-width="4" stroke-linecap="round"/><circle cx="27" cy="31" r="3.5" stroke="#2A2926" stroke-width="4"/></svg>
           </div>
           <h3>Accessories</h3>
           <p>Tags, packing cubes and toiletry rolls that complete the set.</p>
-          <a href="#" class="col-link">Explore accessories <svg viewBox="0 0 24 24" fill="none" stroke="#2A2926" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="accessories.html" class="col-link">Explore accessories <svg viewBox="0 0 24 24" fill="none" stroke="#2A2926" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
+        <!-- Contact card -->
+        <div class="col-card reveal d2">
+          <div class="col-icon">
+            <svg viewBox="0 0 64 64" fill="none"><rect x="8" y="14" width="48" height="36" rx="12" stroke="#2A2926" stroke-width="4"/><path d="M10 20l22 15 22-15" stroke="#2A2926" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <h3>Talk to the studio</h3>
+          <p>Sizing help, warranty claims or a bulk order for the team — we reply within a day.</p>
+          <a href="contact.html" class="col-link">Contact us <svg viewBox="0 0 24 24" fill="none" stroke="#2A2926" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
         </div>
       </div>
     </div>
@@ -144,12 +157,12 @@
   <!-- CRAFT -->
   <section id="craft">
     <div class="wrap">
-      <div class="craft">
-        <div class="craft-grid">
-          <div class="craft-visual">
-            <svg viewBox="0 0 64 64" fill="none"><rect x="8" y="20" width="48" height="36" rx="12" stroke="#F6B333" stroke-width="3.5"/><rect x="19" y="8" width="26" height="12" rx="6" stroke="#F6B333" stroke-width="3.5"/><path d="M20 36c0-4.5 3-7 6-7s5 3.5 5 7 2 7 5 7 6-2.5 6-7" stroke="#F6B333" stroke-width="3.5" stroke-linecap="round"/></svg>
+      <div class="feature-dark reveal">
+        <div class="feature-grid">
+          <div class="feature-visual">
+            <span class="tile"><svg viewBox="0 0 64 64" fill="none"><rect x="8" y="20" width="48" height="36" rx="12" stroke="#F6B333" stroke-width="3.5"/><rect x="19" y="8" width="26" height="12" rx="6" stroke="#F6B333" stroke-width="3.5"/><path d="M20 36c0-4.5 3-7 6-7s5 3.5 5 7 2 7 5 7 6-2.5 6-7" stroke="#F6B333" stroke-width="3.5" stroke-linecap="round"/></svg></span>
           </div>
-          <div class="craft-text">
+          <div class="feature-text">
             <div class="eyebrow"><span class="dot" style="background:#F6B333"></span>Why Montaro lasts</div>
             <h2>Every stitch is a decision, not a default.</h2>
             <p>We test each shell against 20,000 cabin-drops and every zip pull against 50,000 cycles before it earns the Montaro badge. Nothing ships until it survives the trip twice.</p>
@@ -168,12 +181,12 @@
   <!-- TESTIMONIALS -->
   <section class="cream-bg">
     <div class="wrap">
-      <div class="section-head">
+      <div class="section-head reveal">
         <div class="eyebrow"><span class="dot"></span>Frequent flyers say</div>
         <h2>Trusted for the miles that matter.</h2>
       </div>
       <div class="testi-grid">
-        <div class="testi-card">
+        <div class="testi-card reveal">
           <svg viewBox="0 0 24 24" fill="#F6B333"><path d="M7 8c-2.5 0-4 2-4 4.5S4.5 17 7 17s3-1.5 3-3.5c0-1.5-.8-2.5-2-3 .2-1.5 1.2-2.5 3-3l-1-2C7.5 6 7 6.8 7 8zm10 0c-2.5 0-4 2-4 4.5s1.5 4.5 4 4.5 3-1.5 3-3.5c0-1.5-.8-2.5-2-3 .2-1.5 1.2-2.5 3-3l-1-2c-2.5.5-3 1.3-3 3z"/></svg>
           <p>My cabin trolley has done sixty flights and the wheels still roll dead straight. Worth every rupee.</p>
           <div class="testi-person">
@@ -181,7 +194,7 @@
             <div><strong>Aditi R.</strong><span>Product Manager, Bengaluru</span></div>
           </div>
         </div>
-        <div class="testi-card">
+        <div class="testi-card reveal d1">
           <svg viewBox="0 0 24 24" fill="#F6B333"><path d="M7 8c-2.5 0-4 2-4 4.5S4.5 17 7 17s3-1.5 3-3.5c0-1.5-.8-2.5-2-3 .2-1.5 1.2-2.5 3-3l-1-2C7.5 6 7 6.8 7 8zm10 0c-2.5 0-4 2-4 4.5s1.5 4.5 4 4.5 3-1.5 3-3.5c0-1.5-.8-2.5-2-3 .2-1.5 1.2-2.5 3-3l-1-2c-2.5.5-3 1.3-3 3z"/></svg>
           <p>The briefcase fits a 16-inch laptop, a change of clothes, and still looks sharp walking into a boardroom.</p>
           <div class="testi-person">
@@ -189,7 +202,7 @@
             <div><strong>Karan M.</strong><span>Consultant, Mumbai</span></div>
           </div>
         </div>
-        <div class="testi-card">
+        <div class="testi-card reveal d2">
           <svg viewBox="0 0 24 24" fill="#F6B333"><path d="M7 8c-2.5 0-4 2-4 4.5S4.5 17 7 17s3-1.5 3-3.5c0-1.5-.8-2.5-2-3 .2-1.5 1.2-2.5 3-3l-1-2C7.5 6 7 6.8 7 8zm10 0c-2.5 0-4 2-4 4.5s1.5 4.5 4 4.5 3-1.5 3-3.5c0-1.5-.8-2.5-2-3 .2-1.5 1.2-2.5 3-3l-1-2c-2.5.5-3 1.3-3 3z"/></svg>
           <p>Sent one strap in for repair under warranty — replaced free, no questions, back in five days.</p>
           <div class="testi-person">
@@ -201,63 +214,23 @@
     </div>
   </section>
 
-  <!-- CTA -->
+  <!-- CTA / Newsletter -->
   <section style="padding-top:0;">
     <div class="wrap">
-      <div class="cta-band">
+      <div class="cta-band reveal">
         <div>
           <h2>Be first to the next drop.</h2>
           <p>New colourways, early access, and travel notes from the Montaro studio — no spam, just the good stuff.</p>
         </div>
         <div>
-          <form class="signup-form" onsubmit="return false;">
+          <form class="signup-form" data-mock="You’re on the list — welcome aboard.">
             <input type="email" placeholder="Enter your email" aria-label="Email address" required>
-            <button type="submit" class="btn-signup">Notify me</button>
+            <button type="submit">Notify me</button>
           </form>
           <p class="form-note">Unsubscribe anytime. Read our privacy note.</p>
+          <p class="form-status" style="display:none;font-weight:700;color:#2A2926;margin-top:10px;"></p>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="wrap contact-grid">
-      <div>
-        <div class="eyebrow"><span class="dot"></span>Contact us</div>
-        <h2 style="font-size:clamp(28px,3.2vw,38px); margin-bottom:10px;">Let's get you packed.</h2>
-        <p style="color:var(--charcoal-soft); max-width:420px;">Questions on sizing, warranty claims, or a bulk order for the team — our studio replies within one business day.</p>
-        <div class="contact-list">
-          <div class="contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#F6B333" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M3 7l9 6 9-6" stroke-linecap="round"/></svg>
-            <div><strong>Email</strong><span>hello@montaro.com</span></div>
-          </div>
-          <div class="contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#F6B333" stroke-width="2"><path d="M3 5c0-1 1-2 2-2h3l2 5-2 2c1 3 3 5 6 6l2-2 5 2v3c0 1-1 2-2 2C10 21 3 14 3 5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            <div><strong>Phone</strong><span>+91 80 4567 1200</span></div>
-          </div>
-          <div class="contact-item">
-            <svg viewBox="0 0 24 24" fill="none" stroke="#F6B333" stroke-width="2"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.5"/></svg>
-            <div><strong>Studio</strong><span>Indiranagar, Bengaluru, IN</span></div>
-          </div>
-        </div>
-      </div>
-
-      <form class="contact-form" onsubmit="return false;">
-        <div class="field">
-          <label for="name">Full name</label>
-          <input id="name" type="text" placeholder="Your name" required>
-        </div>
-        <div class="field">
-          <label for="email">Email address</label>
-          <input id="email" type="email" placeholder="you@email.com" required>
-        </div>
-        <div class="field">
-          <label for="msg">Message</label>
-          <textarea id="msg" placeholder="Tell us what you're looking for..."></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send message</button>
-      </form>
     </div>
   </section>
 </main>
@@ -266,7 +239,7 @@
   <div class="wrap">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href="#home" class="brand">
+        <a href="index.html" class="brand">
           <img src="montaro-icon.png" alt="Montaro icon" style="height:34px;">
           <span>montaro</span>
         </a>
@@ -281,10 +254,10 @@
         <h4>Shop</h4>
         <ul>
           <li><a href="luggage.html">Luggage</a></li>
-          <li><a href="index.html#duffle">Duffle bags</a></li>
-          <li><a href="index.html#backpacks">Backpacks</a></li>
-          <li><a href="index.html#briefcase">Briefcases</a></li>
-          <li><a href="index.html#accessories">Accessories</a></li>
+          <li><a href="duffle.html">Duffle bags</a></li>
+          <li><a href="backpacks.html">Backpacks</a></li>
+          <li><a href="briefcase.html">Briefcases</a></li>
+          <li><a href="accessories.html">Accessories</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -299,7 +272,7 @@
       <div class="footer-col">
         <h4>Support</h4>
         <ul>
-          <li><a href="index.html#contact">Contact us</a></li>
+          <li><a href="contact.html">Contact us</a></li>
           <li><a href="#">Track order</a></li>
           <li><a href="#">Returns</a></li>
           <li><a href="#">FAQs</a></li>
@@ -312,19 +285,6 @@
     </div>
   </div>
 </footer>
-
-<script>
-  const toggle = document.getElementById('menuToggle');
-  const links = document.getElementById('navLinks');
-  toggle.addEventListener('click', () => {
-    const isOpen = links.classList.toggle('open');
-    toggle.setAttribute('aria-expanded', isOpen);
-  });
-  links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
-    links.classList.remove('open');
-    toggle.setAttribute('aria-expanded', 'false');
-  }));
-</script>
 
 </body>
 </html>

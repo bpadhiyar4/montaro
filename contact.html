@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Montaro</title>
+<meta name="description" content="Get in touch with the Montaro studio — sizing help, warranty claims, repairs and bulk orders. We reply within one business day.">
+<link rel="icon" href="montaro-icon.png">
+<link rel="preconnect" href="https://api.fontshare.com">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=clash-display@600,700&f[]=satoshi@400,500,700&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+
+<header>
+  <nav class="nav wrap">
+    <a href="index.html" class="brand">
+      <img src="montaro-icon.png" alt="Montaro icon">
+      <span>montaro</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="luggage.html">Luggage</a></li>
+      <li><a href="duffle.html">Duffle</a></li>
+      <li><a href="backpacks.html">Backpacks</a></li>
+      <li><a href="briefcase.html">Briefcase</a></li>
+      <li><a href="accessories.html">Accessories</a></li>
+      <li><a href="contact.html" class="active">Contact Us</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="contact.html" class="btn btn-amber">Get in touch</a>
+      <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false"><span></span></button>
+    </div>
+  </nav>
+</header>
+
+<main>
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="breadcrumb">
+        <a href="index.html">Home</a>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6l6 6-6 6"/></svg>
+        <span class="current">Contact Us</span>
+      </div>
+      <div class="page-hero-grid">
+        <div class="reveal">
+          <div class="eyebrow"><span class="dot"></span>Contact us</div>
+          <h1>Let's get you packed.</h1>
+          <p class="lead">Questions on sizing, a warranty claim, a repair, or a bulk order for the team — our Bengaluru studio reads every message and replies within one business day.</p>
+          <div class="page-hero-stats">
+            <div><strong>&lt; 1 day</strong><span>Average reply time</span></div>
+            <div><strong>Mon–Sat</strong><span>10am – 7pm IST</span></div>
+            <div><strong>8 yrs</strong><span>Warranty support</span></div>
+          </div>
+        </div>
+        <div class="page-hero-art reveal d1">
+          <svg viewBox="0 0 64 64" fill="none"><rect x="8" y="16" width="48" height="34" rx="12" stroke="#2A2926" stroke-width="4"/><path d="M11 22l21 15 21-15" stroke="#2A2926" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section style="padding-top:0;">
+    <div class="wrap contact-grid">
+      <div class="reveal">
+        <h2 style="font-size:clamp(26px,3vw,36px);margin-bottom:12px;">Reach the studio.</h2>
+        <p style="color:var(--charcoal-soft);max-width:440px;">Prefer to talk it through? Use whichever suits you — we're a small team and we answer personally.</p>
+        <div class="contact-list">
+          <div class="contact-item">
+            <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#2A2926" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="4"/><path d="M3 7l9 6 9-6" stroke-linecap="round"/></svg></span>
+            <div><strong>Email</strong><span>hello@montaro.com</span></div>
+          </div>
+          <div class="contact-item">
+            <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#2A2926" stroke-width="2"><path d="M3 5c0-1 1-2 2-2h3l2 5-2 2c1 3 3 5 6 6l2-2 5 2v3c0 1-1 2-2 2C10 21 3 14 3 5z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div><strong>Phone &amp; WhatsApp</strong><span>+91 80 4567 1200</span></div>
+          </div>
+          <div class="contact-item">
+            <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#2A2926" stroke-width="2"><path d="M12 21s7-6.5 7-12a7 7 0 10-14 0c0 5.5 7 12 7 12z" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.5"/></svg></span>
+            <div><strong>Studio</strong><span>100 Ft Road, Indiranagar, Bengaluru 560038</span></div>
+          </div>
+          <div class="contact-item">
+            <span class="tile"><svg viewBox="0 0 24 24" fill="none" stroke="#2A2926" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <div><strong>Studio hours</strong><span>Mon – Sat · 10:00 – 19:00 IST</span></div>
+          </div>
+        </div>
+      </div>
+
+      <form class="contact-form reveal d1" data-mock="Thanks — your message is with the studio. We’ll reply within one business day.">
+        <div class="field-row">
+          <div class="field">
+            <label for="name">Full name</label>
+            <input id="name" name="name" type="text" placeholder="Your name" required>
+          </div>
+          <div class="field">
+            <label for="email">Email address</label>
+            <input id="email" name="email" type="email" placeholder="you@email.com" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="topic">What's this about?</label>
+          <select id="topic" name="topic">
+            <option>Sizing &amp; product help</option>
+            <option>Warranty claim</option>
+            <option>Repair request</option>
+            <option>Order &amp; delivery</option>
+            <option>Bulk / corporate order</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="msg">Message</label>
+          <textarea id="msg" name="message" placeholder="Tell us what you're looking for..." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Send message</button>
+        <p class="form-status" style="display:none;font-weight:700;color:var(--charcoal);margin-top:14px;"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="cream-bg">
+    <div class="wrap">
+      <div class="section-head center reveal">
+        <div class="eyebrow"><span class="dot"></span>Before you write</div>
+        <h2>Quick answers.</h2>
+        <p>The things travellers ask us most — you might find yours here.</p>
+      </div>
+      <div class="faq-list">
+        <details class="faq reveal">
+          <summary>How long is the warranty?<span class="plus">+</span></summary>
+          <div class="faq-body">Every Montaro bag carries an 8-year hardware warranty covering wheels, handles, zips and locks against manufacturing defects. Register your bag after purchase to activate it.</div>
+        </details>
+        <details class="faq reveal">
+          <summary>Do you offer repairs after the warranty ends?<span class="plus">+</span></summary>
+          <div class="faq-body">Yes. Our studio repairs Montaro bags for life at cost — send us photos of the issue via the form above and we'll quote the fix and turnaround, usually five to seven days.</div>
+        </details>
+        <details class="faq reveal">
+          <summary>What's your returns policy?<span class="plus">+</span></summary>
+          <div class="faq-body">Try any bag at home for 30 days. If it isn't right, we'll arrange a free pickup and full refund — no questions, as long as tags are intact.</div>
+        </details>
+        <details class="faq reveal">
+          <summary>Can you handle bulk or corporate orders?<span class="plus">+</span></summary>
+          <div class="faq-body">Absolutely. We offer volume pricing, custom monogramming and co-branded luggage tags. Pick “Bulk / corporate order” in the form and our team will build you a quote.</div>
+        </details>
+        <details class="faq reveal">
+          <summary>Where do you ship?<span class="plus">+</span></summary>
+          <div class="faq-body">We ship across India with free delivery over ₹4,999, and to select international destinations. Delivery timelines and duties are shown at checkout.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section>
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <div>
+          <h2>Be first to the next drop.</h2>
+          <p>New colourways, early access, and travel notes from the Montaro studio — no spam, just the good stuff.</p>
+        </div>
+        <div>
+          <form class="signup-form" data-mock="You’re on the list — welcome aboard.">
+            <input type="email" placeholder="Enter your email" aria-label="Email address" required>
+            <button type="submit">Notify me</button>
+          </form>
+          <p class="form-note">Unsubscribe anytime. Read our privacy note.</p>
+          <p class="form-status" style="display:none;font-weight:700;color:#2A2926;margin-top:10px;"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="brand">
+          <img src="montaro-icon.png" alt="Montaro icon" style="height:34px;">
+          <span>montaro</span>
+        </a>
+        <p>Premium travel bags designed for the long way round — built once, carried for years.</p>
+        <div class="footer-social">
+          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 4h-2a4 4 0 00-4 4v3H7v4h2v7h4v-7h3l1-4h-4V8a1 1 0 011-1h3z"/></svg></a>
+          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="4" height="11"/><circle cx="5" cy="5" r="1.5"/><path d="M11 20v-6a3 3 0 016 0v6M11 9v11"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Shop</h4>
+        <ul>
+          <li><a href="luggage.html">Luggage</a></li>
+          <li><a href="duffle.html">Duffle bags</a></li>
+          <li><a href="backpacks.html">Backpacks</a></li>
+          <li><a href="briefcase.html">Briefcases</a></li>
+          <li><a href="accessories.html">Accessories</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="index.html#craft">Our craft</a></li>
+          <li><a href="#">Warranty</a></li>
+          <li><a href="#">Repairs</a></li>
+          <li><a href="#">Sustainability</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Support</h4>
+        <ul>
+          <li><a href="contact.html">Contact us</a></li>
+          <li><a href="#">Track order</a></li>
+          <li><a href="#">Returns</a></li>
+          <li><a href="#">FAQs</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Montaro. All rights reserved.</span>
+      <span>Designed for the long way round.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
